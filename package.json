@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Yelihi/js_mvc/issues"
   },
-  "homepage": "https://github.com/Yelihi/js_mvc#readme"
+  "homepage": "https://github.com/Yelihi/js_mvc#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
 }
