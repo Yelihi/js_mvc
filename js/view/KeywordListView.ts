@@ -4,12 +4,12 @@ import { qs, delegate } from "../helpers.js";
 import { KeywordData } from "../storage.js";
 const tag = "[KeywordList]";
 
-export default class KeywordListView extends View {
-  template: Template;
-  constructor(element = qs("#keyword-list-view") as HTMLElement, template = new Template()) {
+export default class KeywordListView<T extends Template = Template> extends View {
+  template: T;
+  constructor(element = qs("#keyword-list-view") as HTMLElement, template?: T) {
     super(element);
 
-    this.template = template;
+    this.template = template ?? (new Template() as T);
     this.bindEvents();
   }
 
@@ -31,7 +31,7 @@ export default class KeywordListView extends View {
   }
 }
 
-class Template {
+export class Template {
   getEmptyMessage() {
     return `<div class="empty-box">추천 검색어가 없습니다</div>`;
   }

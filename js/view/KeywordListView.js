@@ -2,9 +2,9 @@ import View from "./View.js";
 import { qs, delegate } from "../helpers.js";
 const tag = "[KeywordList]";
 export default class KeywordListView extends View {
-    constructor(element = qs("#keyword-list-view"), template = new Template()) {
+    constructor(element = qs("#keyword-list-view"), template) {
         super(element);
-        this.template = template;
+        this.template = template ?? new Template();
         this.bindEvents();
     }
     showKeyword(data = []) {
@@ -22,7 +22,7 @@ export default class KeywordListView extends View {
         }
     }
 }
-class Template {
+export class Template {
     getEmptyMessage() {
         return `<div class="empty-box">추천 검색어가 없습니다</div>`;
     }
