@@ -1,10 +1,13 @@
+import { ProductData, Storage } from "./storage.js";
+
 const tag = "[Store]";
 
 export default class Store {
-  storage: Object;
+  storage: Storage;
   searchKeyword: string;
+  searchResult: ProductData[];
 
-  constructor(storage: Object) {
+  constructor(storage: Storage) {
     console.log(tag, "constructor");
 
     if (!storage) throw "no storage";
@@ -12,5 +15,11 @@ export default class Store {
     this.storage = storage;
 
     this.searchKeyword = "";
+    this.searchResult = [];
+  }
+
+  search(keyword: string) {
+    this.searchKeyword = keyword;
+    this.searchResult = this.storage.productData.filter((product) => product.name.includes(keyword));
   }
 }

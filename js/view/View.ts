@@ -26,12 +26,12 @@ export default class View {
     return this;
   }
 
-  on(eventName: keyof HTMLElementEventMap, handler: () => void) {
+  on(eventName: string, handler: (...args: any) => void) {
     on(this.element, eventName, handler);
     return this;
   }
 
-  emit(eventName: keyof HTMLElementEventMap, data: any) {
+  emit(eventName: string, data: any = null) {
     emit(this.element, eventName, data);
     return this;
   }

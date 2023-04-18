@@ -1,4 +1,4 @@
-export function qs(selector: string, scope = document) {
+export function qs(selector: string, scope: HTMLElement | Document = document): Element | null {
   if (!selector) throw "no selector";
 
   return scope.querySelector(selector);
@@ -10,7 +10,7 @@ export function qsAll(selector: string, scope: HTMLElement | Document = document
   return Array.from(scope.querySelectorAll(selector));
 }
 
-export function on(target: HTMLElement, eventName: keyof HTMLElementEventMap, handler: (...args: any) => void) {
+export function on(target: HTMLElement, eventName: string, handler: (...args: any) => void) {
   target.addEventListener(eventName, handler);
 }
 
