@@ -2,6 +2,8 @@ import { emit, on } from "../helpers.js";
 
 const tag = "[View]";
 
+type Nullable<T> = T | null;
+
 export default class View {
   element!: HTMLElement;
   originalDisplay: string;
@@ -31,7 +33,7 @@ export default class View {
     return this;
   }
 
-  emit(eventName: string, data: any = null) {
+  emit<T>(eventName: string, data: Nullable<T> = null) {
     emit(this.element, eventName, data);
     return this;
   }

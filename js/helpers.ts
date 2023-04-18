@@ -1,13 +1,13 @@
-export function qs(selector: string, scope: HTMLElement | Document = document): Element | null {
+export function qs(selector: string, scope: HTMLElement | Document = document) {
   if (!selector) throw "no selector";
 
-  return scope.querySelector(selector);
+  return scope.querySelector<HTMLElement>(selector);
 }
 
 export function qsAll(selector: string, scope: HTMLElement | Document = document) {
   if (!selector) throw "no selector";
 
-  return Array.from(scope.querySelectorAll(selector));
+  return Array.from(scope.querySelectorAll<HTMLElement>(selector));
 }
 
 export function on(target: HTMLElement, eventName: string, handler: (...args: any) => void) {
